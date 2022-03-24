@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import movieData from './movieData';
 import Header from './Header';
 import Movies from './Movies';
+import SingleMovie from './SingleMovie';
 import './App.css';
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
       <div>
         <Header />
         <main>
+          {this}
           <Movies movies={this.state.movies} toggleFocusView={this.toggleFocusView} />
         </main>
       </div>
