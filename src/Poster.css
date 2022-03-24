@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.movie-poster:hover {
+  cursor: pointer;
+}
+
 .poster-image {
   height: 400px;
 }
