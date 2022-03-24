@@ -1,0 +1,10 @@
+.movie-poster {
+  border: 1px dashed white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.poster-image {
+  height: 400px;
+}
