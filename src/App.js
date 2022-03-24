@@ -1,12 +1,10 @@
-import movieData from './movieData'
+import movieData from './movieData';
 import './App.css';
 
 function App() {
   return (
     <div>
-      <header>
-
-      </header>
+      
     </div>
   );
 }
