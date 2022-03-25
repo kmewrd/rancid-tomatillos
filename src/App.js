@@ -14,15 +14,16 @@ class App extends Component {
     };
   }
 
-  toggleFocusView = (id) => this.setState({ singleMovieView: id });
+  focusViewOn = (id) => this.setState({ singleMovieView: id });
+
+  focusViewOff = () => this.setState({singleMovieView: null});
 
   render() {
     return (
       <div>
         <Header />
         <main>
-          {this}
-          <Movies movies={this.state.movies} toggleFocusView={this.toggleFocusView} />
+          <Movies movies={this.state.movies} focusViewOn={this.focusViewOn} />
         </main>
       </div>
     );

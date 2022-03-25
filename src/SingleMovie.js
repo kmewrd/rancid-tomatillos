@@ -12,7 +12,7 @@ const SingleMovie = () => {
         Some overview that is full of buzzwords to attempt to entice you to
         watch this movie! Explosions! Drama! True love! Robots! A cute dog!
       </p>
-      
+      <button>Return to main</button>
     </div>
   );
   
