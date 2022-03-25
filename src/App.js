@@ -23,6 +23,7 @@ class App extends Component {
       <div>
         <Header />
         <main>
+          {this.state.singleMovieView && <SingleMovie focusViewOff={this.focusViewOff} />}
           <Movies movies={this.state.movies} focusViewOn={this.focusViewOn} />
         </main>
       </div>

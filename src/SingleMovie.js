@@ -1,7 +1,7 @@
 import React from 'react';
 import './SingleMovie.css';
 
-const SingleMovie = () => {
+const SingleMovie = ( {focusViewOff} ) => {
   return (
     <div>
       <h1>Fake Movie Title</h1>
@@ -12,7 +12,7 @@ const SingleMovie = () => {
         Some overview that is full of buzzwords to attempt to entice you to
         watch this movie! Explosions! Drama! True love! Robots! A cute dog!
       </p>
-      <button>Return to main</button>
+      <button onClick={focusViewOff} >Return to main</button>
     </div>
   );
   
