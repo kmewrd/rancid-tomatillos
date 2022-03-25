@@ -3,9 +3,9 @@ import './SingleMovie.css';
 
 const SingleMovie = ( {focusViewOff} ) => {
   return (
-    <div>
-      <h1>Fake Movie Title</h1>
+    <div className='modal-window'>
       <img src="https://image.tmdb.org/t/p/original//oazPqs1z78LcIOFslbKtJLGlueo.jpg" />
+      <h1>Fake Movie Title</h1>
       <h2>Average Rating: 6</h2>
       <h3>2019</h3>
       <p>
