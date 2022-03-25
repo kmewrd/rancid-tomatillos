@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import fetchAPI from './APIcalls';
-// import fetchAPI from './APIcalls';
-// import movieData from './movieData';
 import Header from './Header';
 import Movies from './Movies';
+import SingleMovie from './SingleMovie';
 import './App.css';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: []
-    }
+      movies: [],
+      singleMovieView: null,
+    };
   }
 
   getAllMovies = () => {
@@ -23,12 +23,17 @@ class App extends Component {
 
   componentDidMount = () => this.getAllMovies()
   
+  focusViewOn = (id) => this.setState({ singleMovieView: id });
+
+  focusViewOff = () => this.setState({singleMovieView: null});
+
   render() {
     return (
       <div>
         <Header />
         <main>
-          <Movies movies={this.state.movies}/>
+          {this.state.singleMovieView && <SingleMovie focusViewOff={this.focusViewOff} />}
+          <Movies movies={this.state.movies} focusViewOn={this.focusViewOn} />
         </main>
       </div>
     );
