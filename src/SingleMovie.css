@@ -1,6 +1,8 @@
 .modal-window {
   border: 1px solid orange;
+  background-color: #271F2D;
   width: 60%;
+  position: fixed;
 }
 
 .modal-window > img {
