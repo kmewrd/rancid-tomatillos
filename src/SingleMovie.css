@@ -6,3 +6,34 @@
 .modal-window > img {
   width: 100%;
 }
+
+.title-and-rating,
+.year-and-genres {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.title-and-rating > *,
+.year-and-genres > *,
+.modal-window > p {
+  margin: 10px 0px;
+}
+
+.green-text {
+  color: #72AC39;
+}
+
+.back-button {
+  background-color: #2590F9;
+  font-weight: bold;
+  color: #fff;
+  height: 40px;
+  width: 200px;
+  border: 0;
+  position: absolute;
+}
+
+.back-button:hover {
+  cursor: pointer;
+}
