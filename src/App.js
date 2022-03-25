@@ -15,11 +15,16 @@ class App extends Component {
   }
 
   getAllMovies = () => {
-    Promise.all([fetchAPI.fetchMovies()])
+    fetchAPI.fetchMovies()
       .then((data) => {
-        this.setState({ movies: data[0].movies });
+        this.setState({ movies: data.movies });
       })
   }
+
+  // getSingleMovie = (id) => {
+  //   fetchAPI.fetchSingleMovie(id)
+  //     .then((data) => )
+  // }
 
   componentDidMount = () => this.getAllMovies()
   
