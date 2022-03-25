@@ -21,23 +21,18 @@ class App extends Component {
       })
   }
 
-  // getSingleMovie = (id) => {
-  //   fetchAPI.fetchSingleMovie(id)
-  //     .then((data) => )
-  // }
-
-  componentDidMount = () => this.getAllMovies()
+  componentDidMount = () => this.getAllMovies();
   
   focusViewOn = (id) => this.setState({ singleMovieView: id });
 
-  focusViewOff = () => this.setState({singleMovieView: null});
+  focusViewOff = () => this.setState({ singleMovieView: null });
 
   render() {
     return (
       <div>
         <Header />
         <main>
-          {this.state.singleMovieView && <SingleMovie focusViewOff={this.focusViewOff} />}
+          {this.state.singleMovieView && <SingleMovie id={this.state.singleMovieView} focusViewOff={this.focusViewOff} />}
           <Movies movies={this.state.movies} focusViewOn={this.focusViewOn} />
         </main>
       </div>
