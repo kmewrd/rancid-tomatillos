@@ -34,24 +34,24 @@ class SingleMovie extends Component {
       
       movieDetails =
         <div className='modal-window'>
-          <button className='back-button' onClick={this.props.focusViewOff}>Return to main</button>
+          <div className='title-and-rating'>
+            <h1>{this.state.movie.title}</h1>
+            <h2>Rating: {this.state.movie.average_rating.toFixed(1)}</h2>
+          </div>
           <img src={this.state.movie.backdrop_path} alt='' />
           <div className='movie-details'>
-            <div className='title-and-rating'>
-              <h1>{this.state.movie.title}</h1>
-              <h2>Rating: {this.state.movie.average_rating.toFixed(1)}</h2>
-            </div>
             <div className='year-and-genres'>
               <h3>{movieYear}</h3>
               <h3>{movieGenres}</h3>
             </div>
-            <p>{this.state.movie.overview}</p>
+            <p className='movie-description'>{this.state.movie.overview}</p>
           </div>
         </div>
     }
 
     return (
-      <div className='modal-container'>
+      <div className='single-movie-container'>
+        <button className='back-button' onClick={this.props.focusViewOff}>Return to main</button>
         {!this.state.movie ? <p>Sorry, please try again later.</p> : movieDetails}
       </div>
     );
