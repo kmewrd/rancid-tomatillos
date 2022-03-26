@@ -41,8 +41,9 @@ class SingleMovie extends Component {
           <img src={this.state.movie.backdrop_path} alt='' />
           <div className='movie-details'>
             <div className='year-and-genres'>
-              <h3>{movieYear}</h3>
-              <h3>{movieGenres}</h3>
+              <h3>Runtime: {this.state.movie.runtime} minutes</h3>
+              <h3>Year released: {movieYear}</h3>
+              <h3>Genres: {movieGenres}</h3>
             </div>
             <p className='movie-description'>{this.state.movie.overview}</p>
           </div>

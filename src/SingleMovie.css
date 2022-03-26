@@ -20,8 +20,17 @@
   padding: 0% 2%;
 } */
 
-.title-and-rating,
+.movie-details {
+  display: flex;
+  
+}
+
 .year-and-genres {
+  width: 1100px;
+  margin: 10px 0px;
+}
+
+.title-and-rating {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -55,7 +64,7 @@
 }
 
 .movie-description {
-  margin: 20px 0px;
+  margin: 20px 0px 0px 30px;
 }
 
 @media (max-width: 1200px) {
