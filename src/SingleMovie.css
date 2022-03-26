@@ -58,7 +58,7 @@
   margin: 20px 0px;
 }
 
-@media (max-width: 1200) {
+@media (max-width: 1200px) {
   .single-movie-container {
     flex-direction: column;
     align-items: center;
