@@ -11,6 +11,7 @@ class App extends Component {
     this.state = {
       movies: [],
       singleMovieView: null,
+      error: null,
     };
   }
 
@@ -18,7 +19,7 @@ class App extends Component {
     fetchAPI.fetchMovies()
       .then((data) => {
         this.setState({ movies: data.movies });
-      })
+      }).catch(err => this.setState({error: err}))
   }
 
   componentDidMount = () => this.getAllMovies();
@@ -32,6 +33,7 @@ class App extends Component {
       <div>
         <Header />
         <main>
+          {this.state.error && <p className="error-message" >Sorry, something went wrong. Please try again later.</p>}
           {this.state.singleMovieView ? <SingleMovie id={this.state.singleMovieView} focusViewOff={this.focusViewOff} /> : <Movies movies={this.state.movies} focusViewOn={this.focusViewOn} />}
         </main>
       </div>

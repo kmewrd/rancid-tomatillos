@@ -6,13 +6,15 @@ class SingleMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movie: null
+      movie: null,
+      error: null,
     }
   }
 
   getSingleMovie = (id) => {
     fetchAPI.fetchSingleMovie(id)
       .then(data => this.setState({ movie: data.movie }))
+      .catch(err => this.setState({error: err}))
   }
 
   componentDidMount = () => this.getSingleMovie(this.props.id);
@@ -56,7 +58,8 @@ class SingleMovie extends Component {
     return (
       <div className='single-movie-container'>
         <button className='back-button' onClick={this.props.focusViewOff}>Return to main</button>
-        {!this.state.movie ? <p>Sorry, please try again later.</p> : movieDetails}
+        {this.state.movie && movieDetails}
+        {this.state.error && <p className="error-message" >Sorry, something went wrong.  Please try again later.</p>}
       </div>
     );
   }
