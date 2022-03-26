@@ -22,6 +22,9 @@ class SingleMovie extends Component {
     let movieDetails;
     
     if (movie) {
+      let movieYear = new Date(this.state.movie.release_date);
+      movieYear = movieYear.getFullYear();
+      
       movieDetails =
         <div className='modal-window'>
           <button className='back-button' onClick={this.props.focusViewOff}>Return to main</button>
@@ -31,7 +34,7 @@ class SingleMovie extends Component {
             <h2>Rating: {this.state.movie.average_rating.toFixed(1)}</h2>
           </div>
           <div className='year-and-genres'>
-            <h3>{this.state.movie.release_date}</h3>
+            <h3>{movieYear}</h3>
             <h3>{this.state.movie.genres}</h3>
           </div>
           <p>{this.state.movie.overview}</p>
