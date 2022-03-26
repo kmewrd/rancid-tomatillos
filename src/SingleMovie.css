@@ -1,6 +1,7 @@
 .single-movie-container {
   width: 100%;
   position: absolute;
+  display: flex;
   /* border: 1px solid pink; */
 }
 
@@ -33,11 +34,11 @@
 }
 
 .green-text {
-  color: #72AC39;
+  color: #72ac39;
 }
 
 .back-button {
-  background-image: linear-gradient(to bottom right, #2590F9, #165DEA);
+  background-image: linear-gradient(to bottom right, #2590f9, #165dea);
   font-weight: bold;
   color: #fff;
   height: 40px;
@@ -55,4 +56,16 @@
 
 .movie-description {
   margin: 20px 0px;
+}
+
+@media (max-width: 1200) {
+  .single-movie-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .back-button {
+    position: static;
+    margin-top: 20px;
+  }
 }
