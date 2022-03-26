@@ -22,23 +22,44 @@ class SingleMovie extends Component {
     let movieDetails;
     
     if (movie) {
-      movieDetails =
-        <div>
-          <h1>{this.state.movie.title}</h1>
-          <img src={this.state.movie.backdrop_path} alt='' />
-          <h2>Rating: {this.state.movie.average_rating.toFixed(1)}</h2>
-          <h3>{this.state.movie.release_date}</h3>
-          <p>{this.state.movie.overview}</p>
-          <button onClick={this.props.focusViewOff}>Return to main</button>
+      let movieGenres;
+      let movieYear = new Date(this.state.movie.release_date);
+      movieYear = movieYear.getFullYear();
+
+      if (this.state.movie.genres.length > 1) {
+        movieGenres = this.state.movie.genres.join(', ');
+      } else {
+        movieGenres = this.state.movie.genres.join('');
+      }
+      
+      movieDetails = (
+        <div className="modal-window">
+          <div className="title-and-rating">
+            <h1>{this.state.movie.title}</h1>
+            <h2>Rating: 
+              <span className="green-text"> {this.state.movie.average_rating.toFixed(1)}</span>
+            </h2>
+          </div>
+          <img src={this.state.movie.backdrop_path} alt="" />
+          <div className="movie-details">
+            <div className="year-and-genres">
+              <h3>Runtime: {this.state.movie.runtime} minutes</h3>
+              <h3>Year released: {movieYear}</h3>
+              <h3>Genres: {movieGenres}</h3>
+            </div>
+            <p className="movie-description">{this.state.movie.overview}</p>
+          </div>
         </div>
+      );
     }
 
     return (
-      <div>
+      <div className='single-movie-container'>
+        <button className='back-button' onClick={this.props.focusViewOff}>Return to main</button>
         {!this.state.movie ? <p>Sorry, please try again later.</p> : movieDetails}
       </div>
     );
   }
 }
 
-export default SingleMovie
+export default SingleMovie;
