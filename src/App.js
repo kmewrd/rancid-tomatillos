@@ -11,6 +11,7 @@ class App extends Component {
     this.state = {
       movies: [],
       singleMovieView: null,
+      error: null,
     };
   }
 
@@ -18,7 +19,7 @@ class App extends Component {
     fetchAPI.fetchMovies()
       .then((data) => {
         this.setState({ movies: data.movies });
-      })
+      }).catch(err => this.setState({error: err}))
   }
 
   componentDidMount = () => this.getAllMovies();
