@@ -6,13 +6,15 @@ class SingleMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movie: null
+      movie: null,
+      error: null,
     }
   }
 
   getSingleMovie = (id) => {
     fetchAPI.fetchSingleMovie(id)
       .then(data => this.setState({ movie: data.movie }))
+      .catch(err => this.setState({error: err}))
   }
 
   componentDidMount = () => this.getSingleMovie(this.props.id);
