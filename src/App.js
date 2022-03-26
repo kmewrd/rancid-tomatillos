@@ -33,6 +33,7 @@ class App extends Component {
       <div>
         <Header />
         <main>
+          {this.state.error && <p className="error-message" >Sorry, something went wrong. Please try again later.</p>}
           {this.state.singleMovieView ? <SingleMovie id={this.state.singleMovieView} focusViewOff={this.focusViewOff} /> : <Movies movies={this.state.movies} focusViewOn={this.focusViewOn} />}
         </main>
       </div>
