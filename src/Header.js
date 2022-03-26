@@ -4,7 +4,7 @@ import './Header.css';
 const Header = () => {
   return (
     <header>
-      <h1>Rancid Tomatillos</h1>
+      <h1 className='logotype'>Rancid <span className='green-text'>Tomatillos</span></h1>
     </header>
   );
 }
