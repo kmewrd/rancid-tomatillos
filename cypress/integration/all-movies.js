@@ -9,6 +9,14 @@ describe('App', () => {
     cy.visit('http://localhost:3000/')
       .get('.movie-container')
       .children('div')
-      .should('have.class', 'movie-poster')
+      .should('have.class', 'movie-poster');
+  });
+
+  it('Movie posters should have an image, title, and release year.', () => {
+    cy.visit('http://localhost:3000/')
+      .get('div[id="694919"]')
+      .should('contain', 'Money Plane')
+      .and('contain', '2020')
+      .find('img[class="poster-image"]');
   });
 })
