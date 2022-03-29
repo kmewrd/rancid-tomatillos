@@ -3,7 +3,9 @@ import fetchAPI from './APIcalls';
 import Header from './Header';
 import Movies from './Movies';
 import SingleMovie from './SingleMovie';
+import ErrorMessage from './ErrorMessage';
 import './App.css';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor() {

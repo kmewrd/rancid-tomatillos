@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import fetchAPI from './APIcalls';
 import './SingleMovie.css';
+import ErrorMessage from './ErrorMessage';
 
 class SingleMovie extends Component {
   constructor(props) {
