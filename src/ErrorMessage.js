@@ -3,9 +3,11 @@ import './ErrorMessage.css';
 
 const ErrorMessage = () => {
   return (
-    <p className="error-message">
-      Sorry, something went wrong. Please try again later.
-    </p>
+    <div>
+      <p className="error-message" >
+        Sorry, something went wrong. Please try again later.
+      </p>
+    </div>
   );
 } 
 

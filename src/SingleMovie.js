@@ -61,7 +61,7 @@ class SingleMovie extends Component {
       <div className='single-movie-container'>
         <Link to='/' ><button className='back-button' >Return to main</button></Link>
         {this.state.movie && movieDetails}
-        {this.state.error && <p className="error-message" >Sorry, something went wrong.  Please try again later.</p>}
+        {this.state.error && <ErrorMessage />}
       </div>
     );
   }
