@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import fetchAPI from './APIcalls';
 import './SingleMovie.css';
 import ErrorMessage from './ErrorMessage';
+import { Link } from 'react-router-dom';
 
 class SingleMovie extends Component {
   constructor(props) {
@@ -58,7 +59,7 @@ class SingleMovie extends Component {
 
     return (
       <div className='single-movie-container'>
-        <button className='back-button' onClick={this.props.focusViewOff}>Return to main</button>
+        <Link to='/' ><button className='back-button' >Return to main</button></Link>
         {this.state.movie && movieDetails}
         {this.state.error && <p className="error-message" >Sorry, something went wrong.  Please try again later.</p>}
       </div>
