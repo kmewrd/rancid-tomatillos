@@ -3,7 +3,9 @@ import fetchAPI from './APIcalls';
 import Header from './Header';
 import Movies from './Movies';
 import SingleMovie from './SingleMovie';
+import ErrorMessage from './ErrorMessage';
 import './App.css';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -23,18 +25,23 @@ class App extends Component {
   }
 
   componentDidMount = () => this.getAllMovies();
-  
-  focusViewOn = (id) => this.setState({ singleMovieView: id });
-
-  focusViewOff = () => this.setState({ singleMovieView: null });
 
   render() {
     return (
       <div>
         <Header />
         <main>
-          {this.state.error && <p className="error-message" >Sorry, something went wrong. Please try again later.</p>}
-          {this.state.singleMovieView ? <SingleMovie id={this.state.singleMovieView} focusViewOff={this.focusViewOff} /> : <Movies movies={this.state.movies} focusViewOn={this.focusViewOn} />}
+          <Route
+            exact
+            path="/"
+            render={() => <Movies movies={this.state.movies} />}
+          />
+          <Route
+            exact
+            path="/:id"
+            render={({ match }) => <SingleMovie id={match.params.id} />}
+          />
+          {this.state.error && <ErrorMessage />}
         </main>
       </div>
     );
@@ -42,3 +49,4 @@ class App extends Component {
 }
 
 export default App;
+

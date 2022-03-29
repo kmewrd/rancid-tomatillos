@@ -68,11 +68,6 @@
   margin: 20px 0px 0px 30px;
 }
 
-.error-message {
-  font-size: 24px;
-
-}
-
 @media (max-width: 1200px) {
   .single-movie-container {
     flex-direction: column;
