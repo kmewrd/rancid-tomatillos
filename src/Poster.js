@@ -8,14 +8,14 @@ const Poster = ({id, title, avgRating, releaseDate, posterImg, backdropImg, focu
   releaseYear = releaseYear.getFullYear();
   
   return (
-    <Link to={url}>
-      <div id={id} className='movie-poster' >
-        <img src={posterImg} alt='' className='poster-image'/>
+    <Link to={url} style={{ textDecoration: 'none', color: '#fff' }}>
+      <div id={id} className="movie-poster">
+        <img src={posterImg} alt="" className="poster-image" />
         <h2>{title}</h2>
         <h3>{releaseYear}</h3>
       </div>
     </Link>
-  )
+  );
 }
 
 export default Poster;
