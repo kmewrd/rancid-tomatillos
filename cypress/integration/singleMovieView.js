@@ -43,4 +43,11 @@ describe('Single Movie View', () => {
       .url()
       .should('eq', 'http://localhost:3000/')
   });
+
+  it('When a movie poster/card is clicked, the header is with the title of the website is still there.', () => {
+    cy.visit('http://localhost:3000/')
+      .get('div[id="694919"]')
+      .click()
+      .get('header')
+  })
 })
