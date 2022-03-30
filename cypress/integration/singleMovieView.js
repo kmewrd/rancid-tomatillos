@@ -7,6 +7,14 @@ describe('Single Movie View', () => {
       .should('not.contain', 'Mulan')
   });
 
+  it('When a movie poster/card is clicked, the title from that card matches the title on the new page.', () => {
+    cy.visit('http://localhost:3000/')
+      .get('.movie-container div:first')
+      .click()
+      .get('main')
+      .should('contain', 'Money Plane')
+  })
+
   it('When a movie poster/card is clicked, the URL changes to the id of the clicked movie.', () => {
     cy.visit('http://localhost:3000/')
       .get('div[id="694919"]')
