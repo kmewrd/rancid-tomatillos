@@ -13,7 +13,18 @@ describe('Single Movie View', () => {
       .click()
       .get('main')
       .should('contain', 'Money Plane')
-  })
+  });
+
+  it('When a movie poster/card is clicked, the following movie details are displayed: Rating, Genres, Runtime, and Year Released or Release Date.', () => {
+    cy.visit('http://localhost:3000/')
+      .get('.movie-container div:first')
+      .click()
+      .get('main')
+      .should('contain', 'Rating')
+      .and('contain', 'Genres')
+      .and('contain', 'Runtime')
+      .and('contain', 'Year released')
+  });
 
   it('When a movie poster/card is clicked, the URL changes to the id of the clicked movie.', () => {
     cy.visit('http://localhost:3000/')
