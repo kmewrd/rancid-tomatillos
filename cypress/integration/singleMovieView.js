@@ -13,5 +13,15 @@ describe('Single Movie View', () => {
       .click()
       .url()
       .should('include', '/694919')
-  })
+  });
+
+  it('When a movie poster/card is clicked, then the back button is clicked, the URL returns to "/".', () => {
+    cy.visit('http://localhost:3000/')
+      .get('div[id="694919"]')
+      .click()
+      .get('button')
+      .click()
+      .url()
+      .should('eq', 'http://localhost:3000/')
+  });
 })
