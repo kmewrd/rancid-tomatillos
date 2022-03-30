@@ -49,5 +49,18 @@ describe('Single Movie View', () => {
       .get('div[id="694919"]')
       .click()
       .get('header')
+  });
+
+  it('When the back button is clicked in SingleMovie view, it goes back to the homepage view with multiple movies and Rating, Genres, Runtime, and Year Released or Release Date are all hidden.', () => {
+    cy.visit('http://localhost:3000/')
+      .get('div[id="694919"]')
+      .click()
+      .get('button')
+      .click()
+      .get('main')
+      .should('not.contain', 'Rating')
+      .and('not.contain', 'Genres')
+      .and('not.contain', 'Runtime')
+      .and('not.contain', 'Year released')
   })
 })
