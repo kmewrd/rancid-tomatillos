@@ -1,5 +1,10 @@
+import { allMovies, singleMovie } from './data';
+
 describe('Single Movie View', () => {
   it('When a movie poster/card is clicked, a new view is loaded without any other movie titles.', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', allMovies);
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', singleMovie);
+
     cy.visit('http://localhost:3000/')
       .get('.movie-container div:first')
       .click()
@@ -8,6 +13,9 @@ describe('Single Movie View', () => {
   });
 
   it('When a movie poster/card is clicked, the title from that card matches the title on the new page.', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', allMovies);
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', singleMovie);
+
     cy.visit('http://localhost:3000/')
       .get('.movie-container div:first')
       .click()
@@ -16,6 +24,9 @@ describe('Single Movie View', () => {
   });
 
   it('When a movie poster/card is clicked, the following movie details are displayed: Rating, Genres, Runtime, and Year Released or Release Date.', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', allMovies);
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', singleMovie);
+
     cy.visit('http://localhost:3000/')
       .get('.movie-container div:first')
       .click()
@@ -27,6 +38,9 @@ describe('Single Movie View', () => {
   });
 
   it('When a movie poster/card is clicked, the URL changes to the id of the clicked movie.', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', allMovies);
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', singleMovie);
+
     cy.visit('http://localhost:3000/')
       .get('div[id="694919"]')
       .click()
@@ -35,6 +49,9 @@ describe('Single Movie View', () => {
   });
 
   it('When a movie poster/card is clicked, then the back button is clicked, the URL returns to "/".', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', allMovies);
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', singleMovie);
+
     cy.visit('http://localhost:3000/')
       .get('div[id="694919"]')
       .click()
@@ -45,6 +62,9 @@ describe('Single Movie View', () => {
   });
 
   it('When a movie poster/card is clicked, the header is with the title of the website is still there.', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', allMovies);
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', singleMovie);
+
     cy.visit('http://localhost:3000/')
       .get('div[id="694919"]')
       .click()
@@ -52,6 +72,9 @@ describe('Single Movie View', () => {
   });
 
   it('When the back button is clicked in SingleMovie view, it goes back to the homepage view with multiple movies and Rating, Genres, Runtime, and Year Released or Release Date are all hidden.', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', allMovies);
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', singleMovie);
+    
     cy.visit('http://localhost:3000/')
       .get('div[id="694919"]')
       .click()
