@@ -63,4 +63,12 @@ describe('Single Movie View', () => {
       .and('not.contain', 'Runtime')
       .and('not.contain', 'Year released')
   })
+
+  it('If network request fails, there is an error message on the page in place of any single movie details.', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', { forceNetworkError: true })
+
+    cy.visit('http://localhost:3000/694919')
+      .get('main')
+      .contains('Sorry, something went wrong.');
+  });
 })
