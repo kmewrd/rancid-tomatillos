@@ -20,4 +20,12 @@ describe('Home Page', () => {
       .and('contain', '2020')
       .find('img[class="poster-image"]');
   });
+
+  it('If network request fails, there is an error message on the homepage in place of a movies grid.', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {forceNetworkError: true})
+
+    cy.visit('http://localhost:3000/')
+      .get('main')
+      .contains('Sorry, something went wrong.');
+  });
 });
