@@ -2,7 +2,7 @@ import React from 'react';
 import './Poster.css';
 import { Link } from 'react-router-dom';
 
-const Poster = ({ id, title, avgRating, releaseDate, posterImg, backdropImg, focusViewOn }) => {
+const Poster = ({ id, title, releaseDate, posterImg }) => {
   let releaseYear = new Date(releaseDate);
   let url = `/${id}`
   releaseYear = releaseYear.getFullYear();
