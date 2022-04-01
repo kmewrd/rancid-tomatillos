@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import fetchAPI from './APIcalls';
+import fetchMovieData from './APIcalls';
 import Header from './Header';
 import Movies from './Movies';
 import SingleMovie from './SingleMovie';
@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   getAllMovies = () => {
-    fetchAPI.fetchMovies()
+    fetchMovieData()
       .then((data) => {
         this.setState({ movies: data.movies });
       }).catch(err => this.setState({error: err}))

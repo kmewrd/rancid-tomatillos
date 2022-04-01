@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import fetchAPI from './APIcalls';
+import fetchMovieData from './APIcalls';
 import './SingleMovie.css';
 import ErrorMessage from './ErrorMessage';
 import { Link } from 'react-router-dom';
@@ -14,7 +14,7 @@ class SingleMovie extends Component {
   }
 
   getSingleMovie = (id) => {
-    fetchAPI.fetchSingleMovie(id)
+    fetchMovieData(id)
       .then(data => this.setState({ movie: data.movie }))
       .catch(err => this.setState({error: err}))
   }
