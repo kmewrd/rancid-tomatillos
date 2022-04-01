@@ -16,7 +16,7 @@ class SingleMovie extends Component {
   getSingleMovie = (id) => {
     fetchMovieData(id)
       .then(data => this.setState({ movie: data.movie }))
-      .catch(err => this.setState({error: err}))
+      .catch(err => this.setState({ error: err }))
   }
 
   componentDidMount = () => this.getSingleMovie(this.props.id);
@@ -27,6 +27,7 @@ class SingleMovie extends Component {
     
     if (movie) {
       let movieGenres;
+      
       let movieYear = new Date(this.state.movie.release_date);
       movieYear = movieYear.getFullYear();
 

@@ -12,16 +12,14 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      singleMovieView: null,
       error: null,
     };
   }
 
   getAllMovies = () => {
     fetchMovieData()
-      .then((data) => {
-        this.setState({ movies: data.movies });
-      }).catch(err => this.setState({error: err}))
+      .then((data) => this.setState({ movies: data.movies }))
+      .catch(err => this.setState({error: err}));
   }
 
   componentDidMount = () => this.getAllMovies();
@@ -31,16 +29,8 @@ class App extends Component {
       <div>
         <Header />
         <main>
-          <Route
-            exact
-            path="/"
-            render={() => <Movies movies={this.state.movies} />}
-          />
-          <Route
-            exact
-            path="/:id"
-            render={({ match }) => <SingleMovie id={match.params.id} />}
-          />
+          <Route exact path='/' render={() => <Movies movies={this.state.movies} />} />
+          <Route exact path='/:id' render={({ match }) => <SingleMovie id={match.params.id} />} />
           {this.state.error && <ErrorMessage />}
         </main>
       </div>
