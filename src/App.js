@@ -19,8 +19,13 @@ class App extends Component {
 
   getAllMovies = () => {
     fetchMovieData()
-      .then((data) => this.setState({ movies: this.sortMovies(data.movies, 'a-to-z') }))
-      .catch(err => this.setState({error: err}));
+      .then((data) =>
+        this.setState({
+          movies: this.sortMovies(data.movies, 'a-to-z'),
+          filteredMovies: this.sortMovies(data.movies, 'a-to-z'),
+        })
+      )
+      .catch((err) => this.setState({ error: err }));
   }
 
   sortMovies = (movies, order) => {
@@ -44,7 +49,7 @@ class App extends Component {
       <div>
         <Header />
         <main>
-          <Route exact path='/' render={() => <Movies movies={this.state.movies} />} />
+          <Route exact path='/' render={() => <Movies movies={this.state.filteredMovies} />} />
           <Route exact path='/:id' render={({ match }) => <SingleMovie id={match.params.id} />} />
           {this.state.error && <ErrorMessage />}
         </main>
