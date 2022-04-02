@@ -1,5 +1,6 @@
 import React from 'react';
 import './Header.css';
+import SortMenu from './SortMenu';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
@@ -10,6 +11,7 @@ const Header = () => {
           Rancid <span className="green-text">Tomatillos</span>
         </h1>
       </Link>
+      <SortMenu />
     </header>
   );
 }
