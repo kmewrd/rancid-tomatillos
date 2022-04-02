@@ -12,6 +12,7 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
+      sortedMovies: [],
       filteredMovies: [],
       error: null,
     };
@@ -21,8 +22,8 @@ class App extends Component {
     fetchMovieData()
       .then((data) =>
         this.setState({
-          movies: this.sortMovies(data.movies, 'a-to-z'),
-          filteredMovies: this.sortMovies(data.movies, 'a-to-z'),
+          sortedMovies: this.sortMovies(data.movies, 'a-to-z'),
+          filteredMovies: this.sortMovies(data.movies, 'a-to-z')
         })
       )
       .catch((err) => this.setState({ error: err }));
@@ -40,17 +41,43 @@ class App extends Component {
     }
   };
 
-  changeSortCriteria = (order) => {
-    let movies = [...this.state.filteredMovies];
-    this.setState({ filteredMovies: this.sortMovies(movies, order) });
+  filterMovies = (movies, filter) => {
+    if (filter === 'above-6') {
+      return movies.filter(movie => movie.average_rating > 6);
+    } else if (filter === 'above-7') {
+      return movies.filter(movie => movie.average_rating > 7);
+    } else if (filter === 'above-8') {
+      return movies.filter(movie => movie.average_rating > 8);
+    } else if (filter === 'above-9') {
+      return movies.filter(movie => movie.average_rating > 9);
+    } else {
+      return movies;
+    }
   };
+
+  updateRenderedMovies = (order) => {
+    this.changeSortCriteria(order);
+    this.changeFilterCriteria();
+  }
+
+  changeSortCriteria = (order) => {
+    let movies = [...this.state.sortedMovies];
+    this.setState({ sortedMovies: this.sortMovies(movies, order), filteredMovies: this.sortMovies(movies, order) });
+  };
+
+  changeFilterCriteria = filter => {
+    let movies = [...this.state.filteredMovies];
+    let filteredMovies = this.filterMovies(movies, filter);
+
+    this.setState({ filteredMovies: filteredMovies });
+  }
 
   componentDidMount = () => this.getAllMovies();
 
   render() {
     return (
       <div>
-        <Header changeSortOrder={this.changeSortCriteria} />
+        <Header updateRenderedMovies={this.updateRenderedMovies} />
         <main>
           <Route
             exact

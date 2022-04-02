@@ -3,7 +3,7 @@ import './Header.css';
 import SortMenu from './SortMenu';
 import { Link, Route } from 'react-router-dom';
 
-const Header = ({ changeSortOrder} ) => {
+const Header = ({ updateRenderedMovies }) => {
   return (
     <header>
       <Link to="/" style={{ textDecoration: 'none', color: '#fff' }}>
@@ -12,7 +12,7 @@ const Header = ({ changeSortOrder} ) => {
         </h1>
       </Link>
       <Route exact path="/">
-        <SortMenu changeSortOrder={ changeSortOrder } />
+        <SortMenu updateRenderedMovies={ updateRenderedMovies } />
       </Route>
     </header>
   );
