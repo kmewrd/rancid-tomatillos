@@ -3,16 +3,9 @@ const cleanMovieData = data => {
 
   movie.genres = formatGenres(movie.genres);
   movie.release_date = formatDate(movie.release_date);
-
-  if (!movie.runtime) {
-    movie.runtime = 'Unavailable';
-  }
-  if (!movie.revenue) {
-    movie.revenue = 'Unavailable';
-  }
-  if (!movie.budget) {
-    movie.budget = 'Unavailable';
-  }
+  movie.runtime = removeZeros(movie.runtime);
+  movie.revenue = removeZeros(movie.revenue);
+  movie.budget = removeZeros(movie.budget);
 
   return movie;
 }
@@ -34,6 +27,10 @@ const formatDate = date => {
     date = new Date(date);
     return date.getFullYear();
   }
+}
+
+const removeZeros = data => {
+  return data ? data : 'Unavailable';
 }
 
 export default cleanMovieData;
