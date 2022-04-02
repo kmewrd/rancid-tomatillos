@@ -3,6 +3,10 @@ const cleanMovieData = data => {
 
   if (!movie.genres.length) {
     movie.genres = ['Unavailable'];
+  } else if (movie.genres.length > 1) {
+    movie.genres = movie.genres.join(', ');
+  } else {
+    movie.genres = movie.genres.join('');
   }
   if (!movie.runtime) {
     movie.runtime = 'Unavailable';

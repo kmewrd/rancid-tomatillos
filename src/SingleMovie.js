@@ -27,18 +27,11 @@ class SingleMovie extends Component {
     let movieDetails;
     
     if (movie) {
-      let movieGenres;
       let movieYear;
       
       if (movie.release_date != 'Unavailable') {
         movieYear = new Date(this.state.movie.release_date);
         movieYear = movieYear.getFullYear();
-      }
-
-      if (this.state.movie.genres.length > 1) {
-        movieGenres = this.state.movie.genres.join(', ');
-      } else {
-        movieGenres = this.state.movie.genres.join('');
       }
       
       movieDetails = (
@@ -54,7 +47,7 @@ class SingleMovie extends Component {
             <div className="year-and-genres">
               <h3>Runtime: {typeof this.state.movie.runtime === 'number' ? `${this.state.movie.runtime} minutes` : this.state.movie.runtime}</h3>
               <h3>Year released: {movieYear}</h3>
-              <h3>Genres: {movieGenres}</h3>
+              <h3>Genres: {this.state.movie.genres}</h3>
             </div>
             <p className="movie-description">{this.state.movie.overview}</p>
           </div>
