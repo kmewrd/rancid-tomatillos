@@ -17,16 +17,16 @@ class SortMenu extends Component {
   render() {
     return (
       <form>
-        <label for="sort">Sort:</label>
+        <label htmlFor="sort">Sort:</label>
         <select name="sort" onChange={(e) => this.handleChange(e)}>
           <option value="a-to-z">Alphabetically (A-Z)</option>
           <option value="z-to-a">Alphabetically (Z-A)</option>
           <option value="ascending-rating">By Rating Ascending</option>
           <option value="descending-rating">By Rating Descending</option>
         </select>
-        <label for="filter">Filter:</label>
+        <label htmlFor="filter">Filter:</label>
         <select name="filter" onChange={(e) => this.handleChange(e) }>
-          <option value="" selected>
+          <option value="" >
             Show all ratings
           </option>
           <option value="above-6">Ratings above 6</option>

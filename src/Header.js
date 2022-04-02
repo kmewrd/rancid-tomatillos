@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css';
 import SortMenu from './SortMenu';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -11,7 +11,9 @@ const Header = () => {
           Rancid <span className="green-text">Tomatillos</span>
         </h1>
       </Link>
-      <SortMenu />
+      <Route exact path="/">
+        <SortMenu />
+      </Route>
     </header>
   );
 }
