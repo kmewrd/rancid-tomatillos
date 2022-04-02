@@ -1,13 +1,9 @@
 const cleanMovieData = data => {
   const movie = data.movie;
 
-  if (!movie.genres.length) {
-    movie.genres = ['Unavailable'];
-  } else if (movie.genres.length > 1) {
-    movie.genres = movie.genres.join(', ');
-  } else {
-    movie.genres = movie.genres.join('');
-  }
+  movie.genres = formatGenres(movie.genres);
+  movie.release_date = formatDate(movie.release_date);
+
   if (!movie.runtime) {
     movie.runtime = 'Unavailable';
   }
@@ -17,14 +13,27 @@ const cleanMovieData = data => {
   if (!movie.budget) {
     movie.budget = 'Unavailable';
   }
-  if (!movie.release_date) {
-    movie.release_date = 'Unavailable'
-  } else {
-    movie.release_date = new Date(movie.release_date);
-    movie.release_date = movie.release_date.getFullYear();
-  }
 
   return movie;
+}
+
+const formatGenres = genres => {
+  if (!genres.length) {
+    return 'Unavailable';
+  } else if (genres.length > 1) {
+    return genres.join(', ');
+  } else {
+    return genres.join('');
+  }
+}
+
+const formatDate = date => {
+  if (!date) {
+    return 'Unavailable'
+  } else {
+    date = new Date(date);
+    return date.getFullYear();
+  }
 }
 
 export default cleanMovieData;
