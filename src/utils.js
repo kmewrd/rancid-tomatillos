@@ -19,6 +19,9 @@ const cleanMovieData = data => {
   }
   if (!movie.release_date) {
     movie.release_date = 'Unavailable'
+  } else {
+    movie.release_date = new Date(movie.release_date);
+    movie.release_date = movie.release_date.getFullYear();
   }
 
   return movie;

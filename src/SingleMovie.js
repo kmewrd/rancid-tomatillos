@@ -27,13 +27,6 @@ class SingleMovie extends Component {
     let movieDetails;
     
     if (movie) {
-      let movieYear;
-      
-      if (movie.release_date != 'Unavailable') {
-        movieYear = new Date(this.state.movie.release_date);
-        movieYear = movieYear.getFullYear();
-      }
-      
       movieDetails = (
         <div className="modal-window">
           <div className="title-and-rating">
@@ -46,7 +39,7 @@ class SingleMovie extends Component {
           <div className="movie-details">
             <div className="year-and-genres">
               <h3>Runtime: {typeof this.state.movie.runtime === 'number' ? `${this.state.movie.runtime} minutes` : this.state.movie.runtime}</h3>
-              <h3>Year released: {movieYear}</h3>
+              <h3>Year released: {this.state.movie.release_date}</h3>
               <h3>Genres: {this.state.movie.genres}</h3>
             </div>
             <p className="movie-description">{this.state.movie.overview}</p>
