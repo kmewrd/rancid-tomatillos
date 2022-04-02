@@ -19,7 +19,7 @@ class App extends Component {
 
   getAllMovies = () => {
     fetchMovieData()
-      .then((data) => this.setState({ movies: data.movies }))
+      .then((data) => this.setState({ movies: this.sortMovies(data.movies, 'a-to-z') }))
       .catch(err => this.setState({error: err}));
   }
 
