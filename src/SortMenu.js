@@ -11,8 +11,14 @@ class SortMenu extends Component {
   }
 
   handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value })
-    this.props.updateRenderedMovies(e.target.value);
+    this.setState({ [e.target.name]: e.target.value });
+    if (e.target.name === 'sort') {
+      this.props.updateRenderedMovies(e.target.value, '')
+      console.log('sort')
+    } else if (e.target.name === 'filter') {
+      this.props.updateRenderedMovies('', e.target.value)
+      console.log('filter')
+    }
   }
 
   render() {

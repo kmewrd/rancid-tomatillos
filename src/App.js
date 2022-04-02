@@ -38,6 +38,8 @@ class App extends Component {
       return movies.sort((a, b) => a.average_rating - b.average_rating);
     } else if (order === 'descending-rating') {
       return movies.sort((a, b) => b.average_rating - a.average_rating);
+    } else {
+      return movies;
     }
   };
 
@@ -55,22 +57,26 @@ class App extends Component {
     }
   };
 
-  updateRenderedMovies = (order) => {
+  updateRenderedMovies = (order, filter) => {
     this.changeSortCriteria(order);
-    this.changeFilterCriteria();
-  }
+    this.changeFilterCriteria(filter);
+  };
 
   changeSortCriteria = (order) => {
-    let movies = [...this.state.sortedMovies];
-    this.setState({ sortedMovies: this.sortMovies(movies, order), filteredMovies: this.sortMovies(movies, order) });
+    if (order) {
+      let movies = [...this.state.sortedMovies];
+      this.setState({ sortedMovies: this.sortMovies(movies, order), filteredMovies: this.sortMovies(movies, order) });
+    }
   };
 
   changeFilterCriteria = filter => {
-    let movies = [...this.state.filteredMovies];
-    let filteredMovies = this.filterMovies(movies, filter);
-
-    this.setState({ filteredMovies: filteredMovies });
-  }
+    if (filter) {
+      let movies = [...this.state.sortedMovies];
+      let filteredMovies = this.filterMovies(movies, filter);
+  
+      this.setState({ filteredMovies: filteredMovies });
+    }
+  };
 
   componentDidMount = () => this.getAllMovies();
 
