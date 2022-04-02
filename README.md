@@ -35,3 +35,6 @@ Rancid Tomatillos is a movie rating app built during Mod 3 of Turing School of S
 
 ### Future Additions & Improvements
 - Add a login feature so users can leave ratings on movies.
+
+#### Design Inspiration
+For the color palette, we were inspired by Dribbble creator ADEN's [Cinema Dashboard Design](https://dribbble.com/shots/15401391-Cinema-Dashboard-Design).
