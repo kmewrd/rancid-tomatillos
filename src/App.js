@@ -20,12 +20,10 @@ class App extends Component {
 
   getAllMovies = () => {
     fetchMovieData()
-      .then((data) =>
-        this.setState({
-          sortedMovies: this.sortMovies(data.movies, 'a-to-z'),
-          filteredMovies: this.sortMovies(data.movies, 'a-to-z')
-        })
-      )
+      .then((data) => {
+        let movies = this.sortMovies(data.movies, 'a-to-z');
+        this.setState({ sortedMovies: movies, filteredMovies: movies });
+      })
       .catch((err) => this.setState({ error: err }));
   };
 
@@ -58,24 +56,27 @@ class App extends Component {
   };
 
   updateRenderedMovies = (order, filter) => {
-    this.changeSortCriteria(order);
-    this.changeFilterCriteria(filter);
+    if (order && !filter) {
+      this.changeSortCriteria(order);
+    } else if (filter && !order) {
+      this.changeFilterCriteria(filter);
+    }
   };
 
   changeSortCriteria = (order) => {
-    if (order) {
-      let movies = [...this.state.sortedMovies];
-      this.setState({ sortedMovies: this.sortMovies(movies, order), filteredMovies: this.sortMovies(movies, order) });
-    }
+    let movies = [...this.state.filteredMovies];
+
+    this.setState({
+      sortedMovies: this.sortMovies(movies, order),
+      filteredMovies: this.sortMovies(movies, order)
+    });
   };
 
   changeFilterCriteria = filter => {
-    if (filter) {
-      let movies = [...this.state.sortedMovies];
-      let filteredMovies = this.filterMovies(movies, filter);
-  
-      this.setState({ filteredMovies: filteredMovies });
-    }
+    let movies = [...this.state.sortedMovies];
+    let filtered = this.filterMovies(movies, filter);
+
+    this.setState({ filteredMovies: filtered });
   };
 
   componentDidMount = () => this.getAllMovies();
@@ -85,16 +86,8 @@ class App extends Component {
       <div>
         <Header updateRenderedMovies={this.updateRenderedMovies} />
         <main>
-          <Route
-            exact
-            path="/"
-            render={() => <Movies movies={this.state.filteredMovies} />}
-          />
-          <Route
-            exact
-            path="/:id"
-            render={({ match }) => <SingleMovie id={match.params.id} />}
-          />
+          <Route exact path="/" render={() => <Movies movies={this.state.filteredMovies} />} />
+          <Route exact path="/:id" render={({ match }) => <SingleMovie id={match.params.id} />} />
           {this.state.error && <ErrorMessage />}
         </main>
       </div>
