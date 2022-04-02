@@ -42,14 +42,12 @@ class App extends Component {
   };
 
   filterMovies = (movies, filter) => {
-    if (filter === 'above-6') {
+    if (filter === 'above-5') {
+      return movies.filter(movie => movie.average_rating > 5);
+    } else if (filter === 'above-6') {
       return movies.filter(movie => movie.average_rating > 6);
     } else if (filter === 'above-7') {
       return movies.filter(movie => movie.average_rating > 7);
-    } else if (filter === 'above-8') {
-      return movies.filter(movie => movie.average_rating > 8);
-    } else if (filter === 'above-9') {
-      return movies.filter(movie => movie.average_rating > 9);
     } else if (filter === 'none' || filter === '') {
       return movies;
     }

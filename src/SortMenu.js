@@ -34,10 +34,9 @@ class SortMenu extends Component {
           <option value='none' >
             Show all ratings
           </option>
+          <option value="above-5">Ratings above 5</option>
           <option value="above-6">Ratings above 6</option>
           <option value="above-7">Ratings above 7</option>
-          <option value="above-8">Ratings above 8</option>
-          <option value="above-9">Ratings above 9</option>
         </select>
       </form>
     );
