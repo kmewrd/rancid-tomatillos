@@ -3,6 +3,7 @@ import fetchMovieData from './APIcalls';
 import './SingleMovie.css';
 import ErrorMessage from './ErrorMessage';
 import { Link } from 'react-router-dom';
+import cleanMovieData from './utils';
 
 class SingleMovie extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class SingleMovie extends Component {
 
   getSingleMovie = (id) => {
     fetchMovieData(id)
-      .then(data => this.setState({ movie: data.movie }))
+      .then(data => this.setState({ movie: cleanMovieData(data) }))
       .catch(err => this.setState({ error: err }))
   }
 
@@ -27,9 +28,12 @@ class SingleMovie extends Component {
     
     if (movie) {
       let movieGenres;
+      let movieYear;
       
-      let movieYear = new Date(this.state.movie.release_date);
-      movieYear = movieYear.getFullYear();
+      if (movie.release_date != 'Unavailable') {
+        movieYear = new Date(this.state.movie.release_date);
+        movieYear = movieYear.getFullYear();
+      }
 
       if (this.state.movie.genres.length > 1) {
         movieGenres = this.state.movie.genres.join(', ');
@@ -48,7 +52,7 @@ class SingleMovie extends Component {
           <img src={this.state.movie.backdrop_path} alt="" />
           <div className="movie-details">
             <div className="year-and-genres">
-              <h3>Runtime: {this.state.movie.runtime} minutes</h3>
+              <h3>Runtime: {typeof this.state.movie.runtime === 'number' ? `${this.state.movie.runtime} minutes` : this.state.movie.runtime}</h3>
               <h3>Year released: {movieYear}</h3>
               <h3>Genres: {movieGenres}</h3>
             </div>
