@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import './SortMenu.css';
 
 class SortMenu extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
       sort: "a-to-z",
       filter: ""
@@ -12,6 +12,7 @@ class SortMenu extends Component {
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
+    this.props.changeSortOrder(e.target.value)
   }
 
   render() {
