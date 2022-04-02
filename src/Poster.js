@@ -1,16 +1,16 @@
 import React from 'react';
 import './Poster.css';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-const Poster = ({id, title, avgRating, releaseDate, posterImg, backdropImg, focusViewOn}) => {
+const Poster = ({ id, title, releaseDate, posterImg }) => {
   let releaseYear = new Date(releaseDate);
   let url = `/${id}`
   releaseYear = releaseYear.getFullYear();
   
   return (
     <Link to={url} style={{ textDecoration: 'none', color: '#fff' }}>
-      <div id={id} className="movie-poster">
-        <img src={posterImg} alt="" className="poster-image" />
+      <div id={id} className='movie-poster'>
+        <img src={posterImg} alt="" className='poster-image'/>
         <h2>{title}</h2>
         <h3>{releaseYear}</h3>
       </div>
