@@ -31,16 +31,15 @@ class App extends Component {
       <div>
         <Header />
         <main>
-          <Route
-            exact
-            path="/"
-            render={() => <Movies movies={this.state.movies} />}
-          />
-          <Route
-            exact
-            path="/:id"
-            render={({ match }) => <SingleMovie id={match.params.id} />}
-          />
+            <Route
+              exact
+              path="/"
+              render={() => <Movies movies={this.state.movies} />}
+            />
+            <Route
+              path="/:id"
+              render={({ match }) => <SingleMovie id={match.params.id} />}
+            />
           {this.state.error && <ErrorMessage />}
         </main>
       </div>
@@ -49,4 +48,8 @@ class App extends Component {
 }
 
 export default App;
+
+
+
+
 

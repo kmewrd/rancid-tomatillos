@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import fetchAPI from './APIcalls';
+import NoMatch from './NoMatch';
 import './SingleMovie.css';
 import ErrorMessage from './ErrorMessage';
 import { Link } from 'react-router-dom';
@@ -58,9 +59,13 @@ class SingleMovie extends Component {
     }
 
     return (
-      <div className='single-movie-container'>
-        <Link to='/' ><button className='back-button' >Return to main</button></Link>
+      <div className="single-movie-container">
+        <Link to="/">
+          <button className="back-button">Return to main</button>
+        </Link>
+        {console.log(this.props.id)}
         {this.state.movie && movieDetails}
+        {!this.state.movie && <NoMatch location={this.props.id} />}
         {this.state.error && <ErrorMessage />}
       </div>
     );
