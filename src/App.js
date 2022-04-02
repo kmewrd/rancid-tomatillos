@@ -22,7 +22,7 @@ class App extends Component {
     fetchMovieData()
       .then((data) => {
         let movies = this.sortMovies(data.movies, 'a-to-z');
-        this.setState({ sortedMovies: movies, filteredMovies: movies });
+        this.setState({ movies: movies, sortedMovies: movies, filteredMovies: movies });
       })
       .catch((err) => this.setState({ error: err }));
   };
@@ -50,7 +50,7 @@ class App extends Component {
       return movies.filter(movie => movie.average_rating > 8);
     } else if (filter === 'above-9') {
       return movies.filter(movie => movie.average_rating > 9);
-    } else {
+    } else if (filter === 'none' || filter === '') {
       return movies;
     }
   };

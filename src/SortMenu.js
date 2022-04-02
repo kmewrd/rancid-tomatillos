@@ -6,7 +6,7 @@ class SortMenu extends Component {
     super(props)
     this.state = {
       sort: "a-to-z",
-      filter: ""
+      filter: "none"
     }
   }
 
@@ -31,7 +31,7 @@ class SortMenu extends Component {
         </select>
         <label htmlFor="filter">Filter:</label>
         <select name="filter" onChange={(e) => this.handleChange(e) }>
-          <option value="" >
+          <option value='none' >
             Show all ratings
           </option>
           <option value="above-6">Ratings above 6</option>
