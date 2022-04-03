@@ -6,10 +6,10 @@ describe('Single Movie View', () => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', singleMovie);
 
     cy.visit('http://localhost:3000/')
-      .get('.movie-container div:first')
+      .get('div[id="694919"]')
       .click()
       .get('main')
-      .should('not.contain', 'Mulan')
+      .should('not.contain', 'Mulan');
   });
 
   it('When a movie poster/card is clicked, the title from that card matches the title on the new page.', () => {
@@ -17,10 +17,10 @@ describe('Single Movie View', () => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', singleMovie);
 
     cy.visit('http://localhost:3000/')
-      .get('.movie-container div:first')
+      .get('div[id="694919"]')
       .click()
       .get('main')
-      .should('contain', 'Money Plane')
+      .should('contain', 'Money Plane');
   });
 
   it('When a movie poster/card is clicked, the following movie details are displayed: Rating, Genres, Runtime, and Year Released or Release Date.', () => {
@@ -28,13 +28,13 @@ describe('Single Movie View', () => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', singleMovie);
 
     cy.visit('http://localhost:3000/')
-      .get('.movie-container div:first')
+      .get('div[id="694919"]')
       .click()
       .get('main')
       .should('contain', 'Rating')
       .and('contain', 'Genres')
       .and('contain', 'Runtime')
-      .and('contain', 'Year released')
+      .and('contain', 'Year released');
   });
 
   it('When a movie poster/card is clicked, the URL changes to the id of the clicked movie.', () => {
