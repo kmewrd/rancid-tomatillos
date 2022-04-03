@@ -78,9 +78,24 @@ describe('Home Page', () => {
     cy.visit('http://localhost:3000/')
       .get('.movie-container div:last')
       .should('contain', 'Trolls World Tour');
-      
-      
+  });
+
+  it('When sort menu option "Alphabetically (Z-A)" is selected, the movies should automatically re order to match new criteria.', () => {
+    cy.intercept(
+      'GET',
+      'https://rancid-tomatillos.herokuapp.com/api/v2/movies',
+      allMovies
+    );
+
+    cy.visit('http://localhost:3000/')
+      .get('select[name="sort"]')
+      .select('Alphabetically (Z-A)')
+      .get('.movie-container div:first')
+      .should('contain', 'Trolls World Tour');
+  });
 
 
-  })
+
+
+  
 });
