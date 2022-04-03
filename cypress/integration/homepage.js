@@ -48,7 +48,7 @@ describe('Home Page', () => {
       .select('Alphabetically (Z-A)')
       .select('By Rating Ascending')
       .select('By Rating Descending')
-  })
+  });
 
   it('Should be able to click on the Filter dropdown menu and see and select from a list of options.', () => {
     cy.intercept(
@@ -62,5 +62,25 @@ describe('Home Page', () => {
       .select('Ratings above 5')
       .select('Ratings above 6')
       .select('Ratings above 7')
+  });
+
+  it('When homepage is visited, all movies are sorted alphabetically from a to z on page load.', () => {
+    cy.intercept(
+      'GET',
+      'https://rancid-tomatillos.herokuapp.com/api/v2/movies',
+      allMovies
+    );
+
+    cy.visit('http://localhost:3000/')
+      .get('.movie-container div:first')
+      .should('contain', 'After We Collided')
+      
+    cy.visit('http://localhost:3000/')
+      .get('.movie-container div:last')
+      .should('contain', 'Trolls World Tour');
+      
+      
+
+
   })
 });
