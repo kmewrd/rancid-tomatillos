@@ -32,7 +32,9 @@ class App extends Component {
     if (order && !filter) {
       this.setState({ sortFrom: order })
     } else if (filter && !order) {
-      this.setState({ filterBy: filter})
+      this.setState({ filterBy: filter })
+    } else if (filter && order) {
+      this.setState({ sortFrom: order, filterBy: filter })
     }
   };
 
