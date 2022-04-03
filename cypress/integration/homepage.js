@@ -198,6 +198,25 @@ describe('Home Page', () => {
       .should('contain', 'Trolls World Tour');
   });
 
+  it('When "Ratings above 6" is selected in the filter menu, the movies matching the criteria should be displayed.', () => {
+    cy.intercept(
+      'GET',
+      'https://rancid-tomatillos.herokuapp.com/api/v2/movies',
+      allMovies
+    );
+
+    cy.visit('http://localhost:3000/')
+      .get('select[name="filter"]')
+      .select('Ratings above 6')
+      .get('.movie-container div:first')
+      .should('contain', 'Antebellum');
+
+    cy.visit('http://localhost:3000/')
+      .get('select[name="filter"]')
+      .select('Ratings above 6')
+      .get('.movie-container div:last')
+      .should('contain', 'Rogue');
+  });
 
 
 });
