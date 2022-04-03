@@ -5,6 +5,7 @@ import './SingleMovie.css';
 import ErrorMessage from './ErrorMessage';
 import { Link } from 'react-router-dom';
 import cleanMovieData from './utils';
+import ReactLoading from 'react-loading';
 
 class SingleMovie extends Component {
   constructor(props) {
@@ -57,6 +58,7 @@ class SingleMovie extends Component {
         </Link>
         {console.log(this.props.id)}
         {this.state.movie && movieDetails}
+        {this.state.isLoading && <ReactLoading type='bubbles' color='#fff' height={'20%'} width={'20%'} />}
         {!this.state.movie && !this.state.isLoading && <NoMatch location={this.props.id} />}
         {this.state.error && <ErrorMessage />}
       </div>
