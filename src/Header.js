@@ -11,9 +11,7 @@ const Header = ({ updateRenderedMovies }) => {
           Rancid <span className="green-text">Tomatillos</span>
         </h1>
       </Link>
-      <Route exact path="/">
-        <SortMenu updateRenderedMovies={ updateRenderedMovies } />
-      </Route>
+      <SortMenu updateRenderedMovies={ updateRenderedMovies } />
     </header>
   );
 }

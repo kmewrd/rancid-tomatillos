@@ -12,8 +12,8 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      sortedMovies: [],
-      filteredMovies: [],
+      sortFrom: 'a-to-z',
+      filterBy: 'none',
       error: null,
     };
   }
@@ -21,60 +21,17 @@ class App extends Component {
   getAllMovies = () => {
     fetchMovieData()
       .then((data) => {
-        let movies = this.sortMovies(data.movies, 'a-to-z');
-        this.setState({ movies: movies, sortedMovies: movies, filteredMovies: movies });
+        this.setState({ movies: data.movies });
       })
       .catch((err) => this.setState({ error: err }));
   };
 
-  sortMovies = (movies, order) => {
-    if (order === 'a-to-z') {
-      return movies.sort((a, b) => a.title.localeCompare(b.title));
-    } else if (order === 'z-to-a') {
-      return movies.sort((a, b) => b.title.localeCompare(a.title));
-    } else if (order === 'ascending-rating') {
-      return movies.sort((a, b) => a.average_rating - b.average_rating);
-    } else if (order === 'descending-rating') {
-      return movies.sort((a, b) => b.average_rating - a.average_rating);
-    } else {
-      return movies;
-    }
-  };
-
-  filterMovies = (movies, filter) => {
-    if (filter === 'above-5') {
-      return movies.filter(movie => movie.average_rating > 5);
-    } else if (filter === 'above-6') {
-      return movies.filter(movie => movie.average_rating > 6);
-    } else if (filter === 'above-7') {
-      return movies.filter(movie => movie.average_rating > 7);
-    } else if (filter === 'none' || filter === '') {
-      return movies;
-    }
-  };
-
   updateRenderedMovies = (order, filter) => {
     if (order && !filter) {
-      this.changeSortCriteria(order);
+      this.setState({ sortFrom: order })
     } else if (filter && !order) {
-      this.changeFilterCriteria(filter);
+      this.setState({ filterBy: filter})
     }
-  };
-
-  changeSortCriteria = (order) => {
-    let movies = [...this.state.filteredMovies];
-
-    this.setState({
-      sortedMovies: this.sortMovies(movies, order),
-      filteredMovies: this.sortMovies(movies, order)
-    });
-  };
-
-  changeFilterCriteria = filter => {
-    let movies = [...this.state.sortedMovies];
-    let filtered = this.filterMovies(movies, filter);
-
-    this.setState({ filteredMovies: filtered });
   };
 
   componentDidMount = () => this.getAllMovies();
@@ -84,7 +41,7 @@ class App extends Component {
       <div>
         <Header updateRenderedMovies={this.updateRenderedMovies} />
         <main>
-          <Route exact path="/" render={() => <Movies movies={this.state.filteredMovies} />} />
+          <Route exact path="/" render={() => <Movies movies={this.state.movies} sortFrom={this.state.sortFrom} filterBy={this.state.filterBy} />} />
           <Route exact path="/:id" render={({ match }) => <SingleMovie id={match.params.id} />} />
           {this.state.error && <ErrorMessage />}
         </main>
