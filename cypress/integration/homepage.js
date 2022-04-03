@@ -120,6 +120,47 @@ describe('Home Page', () => {
       .should('contain', "Peninsula");
   });
 
+  it('When sort menu option "By Rating Descending" is selected, the movies should automatically re order to match new criteria.', () => {
+    cy.intercept(
+      'GET',
+      'https://rancid-tomatillos.herokuapp.com/api/v2/movies',
+      allMovies
+    );
+
+    cy.visit('http://localhost:3000/')
+      .get('select[name="sort"]')
+      .select('By Rating Descending')
+      .get('.movie-container div:last')
+      .should('contain', 'The Crimes That Bind');
+
+    cy.visit('http://localhost:3000/')
+      .get('select[name="sort"]')
+      .select('By Rating Descending')
+      .get('.movie-container div:first')
+      .should('contain', 'Peninsula');
+  });
+
+  it('When sort menu option "Alphabetically (A-Z)" is selected, the movies should automatically re order to match new criteria.', () => {
+    cy.intercept(
+      'GET',
+      'https://rancid-tomatillos.herokuapp.com/api/v2/movies',
+      allMovies
+    );
+
+    cy.visit('http://localhost:3000/')
+      .get('select[name="sort"]')
+      .select('By Rating Descending')
+      .select('Alphabetically (A-Z)')
+      .get('.movie-container div:first')
+      .should('contain', 'After We Collided');
+
+    cy.visit('http://localhost:3000/')
+      .get('select[name="sort"]')
+      .select('By Rating Descending')
+      .select('Alphabetically (A-Z)')
+      .get('.movie-container div:last')
+      .should('contain', 'Trolls World Tour');
+  });
 
 
 
