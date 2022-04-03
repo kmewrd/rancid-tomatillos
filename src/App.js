@@ -12,25 +12,37 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
+      sortFrom: 'a-to-z',
+      filterBy: 'none',
       error: null,
     };
   }
 
   getAllMovies = () => {
     fetchMovieData()
-      .then((data) => this.setState({ movies: data.movies }))
-      .catch(err => this.setState({error: err}));
-  }
+      .then((data) => {
+        this.setState({ movies: data.movies });
+      })
+      .catch((err) => this.setState({ error: err }));
+  };
+
+  updateRenderedMovies = (order, filter) => {
+    if (order && !filter) {
+      this.setState({ sortFrom: order })
+    } else if (filter && !order) {
+      this.setState({ filterBy: filter})
+    }
+  };
 
   componentDidMount = () => this.getAllMovies();
 
   render() {
     return (
       <div>
-        <Header />
+        <Header updateRenderedMovies={this.updateRenderedMovies} />
         <main>
-          <Route exact path='/' render={() => <Movies movies={this.state.movies} />} />
-          <Route exact path='/:id' render={({ match }) => <SingleMovie id={match.params.id} />} />
+          <Route exact path="/" render={() => <Movies movies={this.state.movies} sortFrom={this.state.sortFrom} filterBy={this.state.filterBy} />} />
+          <Route exact path="/:id" render={({ match }) => <SingleMovie id={match.params.id} />} />
           {this.state.error && <ErrorMessage />}
         </main>
       </div>
