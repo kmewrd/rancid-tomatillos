@@ -18,14 +18,10 @@ const Movies = ({ movies, sortFrom, filterBy }) => {
   };
   
   const filterMovies = (movies, filter) => {
-    if (filter === 'above-5') {
-      return movies.filter(movie => movie.average_rating > 5);
-    } else if (filter === 'above-6') {
-      return movies.filter(movie => movie.average_rating > 6);
-    } else if (filter === 'above-7') {
-      return movies.filter(movie => movie.average_rating > 7);
-    } else if (filter === 'none' || filter === '') {
+    if (filter === 'none' || filter === '') {
       return movies;
+    } else {
+      return movies.filter((movie) => movie.average_rating > filter.slice(-1));
     }
   };
 
