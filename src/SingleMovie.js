@@ -12,13 +12,14 @@ class SingleMovie extends Component {
     this.state = {
       movie: null,
       error: null,
+      isLoading: true
     }
   }
 
   getSingleMovie = (id) => {
     fetchMovieData(id)
-      .then(data => this.setState({ movie: cleanMovieData(data) }))
-      .catch(err => this.setState({ error: err }))
+      .then(data => this.setState({ movie: cleanMovieData(data), isLoading: false }))
+      .catch(err => this.setState({ error: err, isLoading: false }))
   }
 
   componentDidMount = () => this.getSingleMovie(this.props.id);
@@ -56,7 +57,7 @@ class SingleMovie extends Component {
         </Link>
         {console.log(this.props.id)}
         {this.state.movie && movieDetails}
-        {!this.state.movie && <NoMatch location={this.props.id} />}
+        {!this.state.movie && !this.state.isLoading && <NoMatch location={this.props.id} />}
         {this.state.error && <ErrorMessage />}
       </div>
     );
