@@ -35,7 +35,7 @@ describe('Home Page', () => {
       .contains('Sorry, something went wrong.');
   });
 
-  it('Should be able to click on the Sort and Filter dropdown menus and see and select from a list of options.', () => {
+  it('Should be able to click on the Sort dropdown menu and see and select from a list of options.', () => {
     cy.intercept(
       'GET',
       'https://rancid-tomatillos.herokuapp.com/api/v2/movies',
@@ -48,5 +48,19 @@ describe('Home Page', () => {
       .select('Alphabetically (Z-A)')
       .select('By Rating Ascending')
       .select('By Rating Descending')
+  })
+
+  it('Should be able to click on the Filter dropdown menu and see and select from a list of options.', () => {
+    cy.intercept(
+      'GET',
+      'https://rancid-tomatillos.herokuapp.com/api/v2/movies',
+      allMovies
+    );
+
+    cy.visit('http://localhost:3000/')
+      .get('select[name="filter"]')
+      .select('Ratings above 5')
+      .select('Ratings above 6')
+      .select('Ratings above 7')
   })
 });
