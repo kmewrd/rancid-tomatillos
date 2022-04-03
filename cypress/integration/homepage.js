@@ -92,10 +92,36 @@ describe('Home Page', () => {
       .select('Alphabetically (Z-A)')
       .get('.movie-container div:first')
       .should('contain', 'Trolls World Tour');
+
+    cy.visit('http://localhost:3000/')
+      .get('select[name="sort"]')
+      .select('Alphabetically (Z-A)')
+      .get('.movie-container div:last')
+      .should('contain', 'After We Collided');
+  });
+
+  it('When sort menu option "By Rating Ascending" is selected, the movies should automatically re order to match new criteria.', () => {
+    cy.intercept(
+      'GET',
+      'https://rancid-tomatillos.herokuapp.com/api/v2/movies',
+      allMovies
+    );
+
+    cy.visit('http://localhost:3000/')
+      .get('select[name="sort"]')
+      .select('By Rating Ascending')
+      .get('.movie-container div:first')
+      .should('contain', "The Crimes That Bind");
+ 
+      cy.visit('http://localhost:3000/')
+      .get('select[name="sort"]')
+      .select('By Rating Ascending')
+      .get('.movie-container div:last')
+      .should('contain', "Peninsula");
   });
 
 
 
 
-  
+
 });
