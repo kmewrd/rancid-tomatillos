@@ -218,5 +218,19 @@ describe('Home Page', () => {
       .should('contain', 'Rogue');
   });
 
+  it('When "Ratings above 7" is selected in the filter menu, the movies matching the criteria should be displayed.', () => {
+    cy.intercept(
+      'GET',
+      'https://rancid-tomatillos.herokuapp.com/api/v2/movies',
+      allMovies
+    );
 
+    cy.visit('http://localhost:3000/')
+      .get('select[name="filter"]')
+      .select('Ratings above 7')
+      .get('.movie-container')
+      .children()
+      .should('have.length', 1)
+      .and('contain', 'Peninsula');
+  });
 });
