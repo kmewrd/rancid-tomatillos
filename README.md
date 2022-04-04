@@ -21,7 +21,25 @@ Rancid Tomatillos is a movie rating app built during Mod 3 of Turing School of S
 
 ## Features
 
-<!-- Need to fill out this section once features are complete. -->
+When you visit the homepage, there is a grid of movie posters with their movie title and year released. This list is ordered alphabetically from A to Z. Each poster is clickable and directs you to the detailed view of that movie with additional details (genre, rating, runtime, and description).
+
+**Sorting & Filtering**
+
+In the header, there are two dropdown menus that control the order in which posters are displayed. There are four sort option and four filter options:
+- Alphabetically (A to Z)
+- Alphabetically (Z to A)
+- By Rating Ascending
+- By Rating Descending
+- Ratings above 5
+- Ratings above 6
+- Ratings above 7
+- Show all ratings
+
+Selecting an option from either dropdown menu immediately renders the new sorted/filtered view. Sorting and filtering options can be combined. To return to the original settings, click the Reset button alongside the menu options.
+
+#### Accessibility & Responsive Layout
+
+This application was tested with Lighthouse and the WAVE Chrome extension in order to address the needs of all users.
 
 ---
 
@@ -31,10 +49,13 @@ Rancid Tomatillos is a movie rating app built during Mod 3 of Turing School of S
 - CSS
 - HTML
 - Cypress
+- Fetch API
+- NPM
 - Visual Studio Code
 
 ### Future Additions & Improvements
 - Add a login feature so users can leave ratings on movies.
+- Deploy site to Heroku.
 
 #### Design Inspiration
 For the color palette, we were inspired by Dribbble creator ADEN's [Cinema Dashboard Design](https://dribbble.com/shots/15401391-Cinema-Dashboard-Design).
