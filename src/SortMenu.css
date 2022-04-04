@@ -9,3 +9,11 @@
   font-size: 16px;
   cursor: pointer;
 }
+
+.filter-menu {
+  /* border: 1px solid pink; */
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
