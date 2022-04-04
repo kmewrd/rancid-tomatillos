@@ -5,6 +5,7 @@ import './SingleMovie.css';
 import ErrorMessage from './ErrorMessage';
 import { Link } from 'react-router-dom';
 import cleanMovieData from './utils';
+import ReactLoading from 'react-loading';
 
 class SingleMovie extends Component {
   constructor(props) {
@@ -12,13 +13,14 @@ class SingleMovie extends Component {
     this.state = {
       movie: null,
       error: null,
+      isLoading: true
     }
   }
 
   getSingleMovie = (id) => {
     fetchMovieData(id)
-      .then(data => this.setState({ movie: cleanMovieData(data) }))
-      .catch(err => this.setState({ error: err }))
+      .then(data => this.setState({ movie: cleanMovieData(data), isLoading: false }))
+      .catch(err => this.setState({ error: err, isLoading: false }))
   }
 
   componentDidMount = () => this.getSingleMovie(this.props.id);
@@ -56,7 +58,8 @@ class SingleMovie extends Component {
         </Link>
         {console.log(this.props.id)}
         {this.state.movie && movieDetails}
-        {!this.state.movie && <NoMatch location={this.props.id} />}
+        {this.state.isLoading && <ReactLoading type='bubbles' color='#fff' height={'20%'} width={'20%'} />}
+        {!this.state.movie && !this.state.isLoading && <NoMatch location={this.props.id} />}
         {this.state.error && <ErrorMessage />}
       </div>
     );

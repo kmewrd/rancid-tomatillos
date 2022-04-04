@@ -233,4 +233,22 @@ describe('Home Page', () => {
       .should('have.length', 1)
       .and('contain', 'Peninsula');
   });
+
+  it('When the Clear button is clicked, it should reset the sort and filter menu back to original settings.', () => {
+    cy.intercept(
+      'GET',
+      'https://rancid-tomatillos.herokuapp.com/api/v2/movies',
+      allMovies
+    );
+
+    cy.visit('http://localhost:3000/')
+      .get('select[name="sort"]')
+      .select('Alphabetically (Z-A)')
+      .get('select[name="filter"]')
+      .select('Ratings above 7')
+      .get('.clear-button')
+      .click()
+      .get('.movie-container div:first')
+      .should('contain', 'After We Collided')
+  });
 });
