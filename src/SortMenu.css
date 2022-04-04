@@ -12,8 +12,23 @@
 
 .filter-menu {
   /* border: 1px solid pink; */
-  width: 50%;
+  width: 55%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+
+select {
+  border: 1px solid #fff;
+  background-color: #271F2D;
+  color: #fff;
+  height: 30px;
+  border-radius: 12px;
+  font-size: 16px;
+  margin: 0px 8px  ;
+}
+
+label {
+  font-size: 20px;
+  font-weight: bold;
 }
