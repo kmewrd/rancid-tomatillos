@@ -2,21 +2,3 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-
-@media (max-width: 1500px) {
-  .movie-container {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-@media (max-width: 1075px) {
-  .movie-container {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 710px) {
-  .movie-container {
-    grid-template-columns: 1fr;
-  }
-}
