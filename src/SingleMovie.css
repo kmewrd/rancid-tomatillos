@@ -7,7 +7,6 @@
 }
 
 .modal-window {
-  /* border: 1px solid orange; */
   width: 60%;
   margin: auto;
 }
@@ -18,7 +17,7 @@
 
 .movie-details {
   display: flex;
-  
+  flex-direction: row;
 }
 
 .year-and-genres {

@@ -40,6 +40,18 @@
   .movie-container {
     grid-template-columns: 1fr 1fr;
   }
+
+  .movie-details {
+    flex-direction: column;
+  }
+
+  .year-and-genres {
+    width: 100%;
+  }
+
+  .movie-description {
+    margin: auto;
+  }
 }
 
 @media (max-width: 720px) {
