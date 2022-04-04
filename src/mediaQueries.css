@@ -8,10 +8,34 @@
   .movie-container {
     grid-template-columns: 1fr 1fr;
   }
+
+  header {
+    /* border: 1px solid pink; */
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 110px;
+    /* align-items: ; */
+  }
+
+  .filter-menu {
+    width: 80%;
+  }
 }
 
 @media (max-width: 710px) {
   .movie-container {
     grid-template-columns: 1fr;
+  }
+
+  form {
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 130px;
+  }
+
+  header {
+  /* border: 1px solid pink; */
+  height: 180px;
+  /* align-items: ; */
   }
 }
