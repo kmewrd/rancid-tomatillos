@@ -4,17 +4,31 @@
   }
 }
 
+@media (max-width: 1200px) {
+  .single-movie-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .back-button {
+    position: static;
+    margin-top: 20px;
+  }
+
+  .modal-window {
+    width: 80%;
+  }
+}
+
 @media (max-width: 1075px) {
   .movie-container {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
   header {
-    /* border: 1px solid pink; */
     flex-direction: column;
     justify-content: space-evenly;
     height: 110px;
-    /* align-items: ; */
   }
 
   .filter-menu {
@@ -28,22 +42,30 @@
   }
 }
 
-@media (max-width: 710px) {
+@media (max-width: 720px) {
   form {
     flex-direction: column;
     justify-content: space-evenly;
-    height: 130px;
+    height: 140px;
   }
 
   header {
-  /* border: 1px solid pink; */
-  height: 180px;
-  /* align-items: ; */
+  height: 200px;
+  }
+
+  .modal-window {
+    width: 95%;
   }
 }
 
 @media (max-width: 550px) {
   .movie-container {
     grid-template-columns: 1fr;
+  }
+  
+  .title-and-rating {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 }

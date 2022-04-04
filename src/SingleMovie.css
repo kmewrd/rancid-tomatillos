@@ -16,11 +16,6 @@
   width: 100%;
 }
 
-/* .title-and-rating,
-.movie-details {
-  padding: 0% 2%;
-} */
-
 .movie-details {
   display: flex;
   
@@ -67,16 +62,4 @@
 
 .movie-description {
   margin: 20px 0px 0px 30px;
-}
-
-@media (max-width: 1200px) {
-  .single-movie-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .back-button {
-    position: static;
-    margin-top: 20px;
-  }
 }
