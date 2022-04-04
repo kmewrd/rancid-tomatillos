@@ -56,7 +56,6 @@ class SingleMovie extends Component {
         <Link to="/">
           <button className="back-button">Return to main</button>
         </Link>
-        {console.log(this.props.id)}
         {this.state.movie && movieDetails}
         {this.state.isLoading && <ReactLoading type='bubbles' color='#fff' height={'20%'} width={'20%'} />}
         {!this.state.movie && !this.state.isLoading && <NoMatch location={this.props.id} />}

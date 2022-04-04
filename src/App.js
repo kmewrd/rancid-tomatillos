@@ -5,6 +5,7 @@ import Movies from './Movies';
 import SingleMovie from './SingleMovie';
 import ErrorMessage from './ErrorMessage';
 import './App.css';
+import './mediaQueries.css';
 import { Route } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 

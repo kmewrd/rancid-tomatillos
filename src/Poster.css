@@ -8,6 +8,8 @@
 
 .movie-poster:hover {
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.05, 1.05);
 }
 
 .movie-poster > h2,
@@ -16,6 +18,6 @@
 }
 
 .poster-image {
-  height: 480px;
+  width: 100%;
   border-radius: 15px;
 }

@@ -7,7 +7,6 @@
 }
 
 .modal-window {
-  /* border: 1px solid orange; */
   width: 60%;
   margin: auto;
 }
@@ -16,14 +15,9 @@
   width: 100%;
 }
 
-/* .title-and-rating,
-.movie-details {
-  padding: 0% 2%;
-} */
-
 .movie-details {
   display: flex;
-  
+  flex-direction: row;
 }
 
 .year-and-genres {
@@ -67,16 +61,4 @@
 
 .movie-description {
   margin: 20px 0px 0px 30px;
-}
-
-@media (max-width: 1200px) {
-  .single-movie-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .back-button {
-    position: static;
-    margin-top: 20px;
-  }
 }

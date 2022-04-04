@@ -1,0 +1,83 @@
+@media (max-width: 1500px) {
+  .movie-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 1200px) {
+  .single-movie-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .back-button {
+    position: static;
+    margin-top: 20px;
+  }
+
+  .modal-window {
+    width: 80%;
+  }
+}
+
+@media (max-width: 1075px) {
+  .movie-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  header {
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 110px;
+  }
+
+  .filter-menu {
+    width: 80%;
+  }
+}
+
+@media (max-width: 910px) {
+  .movie-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .movie-details {
+    flex-direction: column;
+  }
+
+  .year-and-genres {
+    width: 100%;
+  }
+
+  .movie-description {
+    margin: auto;
+  }
+}
+
+@media (max-width: 720px) {
+  form {
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 140px;
+  }
+
+  header {
+  height: 200px;
+  }
+
+  .modal-window {
+    width: 95%;
+  }
+}
+
+@media (max-width: 550px) {
+  .movie-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .title-and-rating {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
