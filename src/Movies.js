@@ -28,7 +28,7 @@ const Movies = ({ movies, sortFrom, filterBy }) => {
   const sortedMovies = sortMovies(movies, sortFrom);
   const filteredMovies = filterMovies(sortedMovies, filterBy);
   
-  let allMovies = filteredMovies.map(movie => <Poster key={movie.id} id={movie.id} title={movie.title} avgRating={movie.average_rating} releaseDate={movie.release_date} posterImg={movie.poster_path} backdropImg={movie.backdrop_path}/>)
+  let allMovies = filteredMovies.map(movie => <Poster key={movie.id} id={movie.id} title={movie.title} posterImg={movie.poster_path} />)
 
   return (
     <div className="movie-container" >
