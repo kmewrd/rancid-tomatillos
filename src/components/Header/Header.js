@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-import SortMenu from './SortMenu';
+import SortMenu from '../SortMenu/SortMenu';
 import { NavLink } from 'react-router-dom';
 
 const Header = ({ updateRenderedMovies }) => {

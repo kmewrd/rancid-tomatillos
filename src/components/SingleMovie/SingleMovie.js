@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import NoMatch from './NoMatch';
-import fetchMovieData from './APIcalls';
+import NoMatch from '../NoMatch/NoMatch';
+import fetchMovieData from '../../APIcalls';
 import './SingleMovie.css';
-import ErrorMessage from './ErrorMessage';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import { Link } from 'react-router-dom';
-import cleanMovieData from './utils';
+import cleanMovieData from '../../utils';
 import ReactLoading from 'react-loading';
 
 class SingleMovie extends Component {

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Movies.css';
-import Poster from './Poster';
+import Poster from '../Poster/Poster';
 
 const Movies = ({ movies, sortFrom, filterBy }) => {
   const sortMovies = (movies, order) => {

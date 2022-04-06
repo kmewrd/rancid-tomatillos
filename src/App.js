@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import fetchMovieData from './APIcalls';
-import Header from './Header';
-import Movies from './Movies';
-import SingleMovie from './SingleMovie';
-import ErrorMessage from './ErrorMessage';
+import Header from './components/Header/Header';
+import Movies from './components/Movies/Movies';
+import SingleMovie from './components/SingleMovie/SingleMovie';
+import ErrorMessage from './components/ErrorMessage/ErrorMessage';
 import './App.css';
 import './mediaQueries.css';
 import { Route } from 'react-router-dom';
