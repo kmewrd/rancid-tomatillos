@@ -54,9 +54,7 @@ class SortMenu extends Component {
             <option value='above-7'>Ratings above 7</option>
           </select>
         </div>
-        <button className='clear-button' onClick={(e) => this.resetMenu(e)}>
-          Reset
-        </button>
+        <button className='clear-button' onClick={(e) => this.resetMenu(e)}>Reset</button>
       </form>
     );
   }

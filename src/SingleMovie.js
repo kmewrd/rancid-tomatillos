@@ -38,7 +38,7 @@ class SingleMovie extends Component {
               <span className='green-text'> {this.state.movie.average_rating.toFixed(1)}</span>
             </h2>
           </div>
-          <img src={this.state.movie.backdrop_path} alt='' />
+          <img src={this.state.movie.backdrop_path} alt=''/>
           <div className='movie-details'>
             <div className='year-and-genres'>
               <h3>Runtime: {typeof this.state.movie.runtime === 'number' ? `${this.state.movie.runtime} minutes` : this.state.movie.runtime}</h3>

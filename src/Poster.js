@@ -8,7 +8,7 @@ const Poster = ({ id, title, posterImg }) => {
   return (
     <Link to={url} style={{ textDecoration: 'none', color: '#fff' }}>
       <div id={id} className='movie-poster'>
-        <img src={posterImg} alt="" className='poster-image'/>
+        <img src={posterImg} alt='' className='poster-image'/>
         <h2>{title}</h2>
       </div>
     </Link>
