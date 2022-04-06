@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import fetchMovieData from './APIcalls';
+import fetchMovieData from './apiCalls';
 import Header from './components/Header/Header';
 import Movies from './components/Movies/Movies';
 import SingleMovie from './components/SingleMovie/SingleMovie';

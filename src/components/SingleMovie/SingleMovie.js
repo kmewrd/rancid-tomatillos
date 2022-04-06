@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NoMatch from '../NoMatch/NoMatch';
-import fetchMovieData from '../../APIcalls';
+import fetchMovieData from '../../apiCalls';
 import './SingleMovie.css';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import { Link } from 'react-router-dom';
