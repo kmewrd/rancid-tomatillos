@@ -47,8 +47,8 @@ class App extends Component {
         <Header updateRenderedMovies={this.updateRenderedMovies} />
         <main>
           {this.state.isLoading && <ReactLoading type='bubbles' color='#fff' height={'20%'} width={'20%'} />}
-          <Route exact path="/" render={() => <Movies movies={this.state.movies} sortFrom={this.state.sortFrom} filterBy={this.state.filterBy} />} />
-          <Route exact path="/:id" render={({ match }) => <SingleMovie id={match.params.id} />} />
+          <Route exact path='/' render={() => <Movies movies={this.state.movies} sortFrom={this.state.sortFrom} filterBy={this.state.filterBy} />} />
+          <Route exact path='/:id' render={({ match }) => <SingleMovie id={match.params.id} />} />
           {this.state.error && <ErrorMessage />}
         </main>
       </div>

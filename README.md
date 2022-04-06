@@ -11,7 +11,7 @@ Rancid Tomatillos is a movie rating app built during Mod 3 of Turing School of S
 - Practice refactoring
 - Create a multi-page UX using Router
 
-<img width="1440" alt="Homepage View of Rancid Tomatillos" src="https://user-images.githubusercontent.com/79027364/161639930-353ac4e8-6e14-49f6-aeec-626d0e73b2d8.png">
+<img width="1440" alt="Homepage View of Rancid Tomatillos" src="https://user-images.githubusercontent.com/79027364/161985539-2c6ad6da-bab1-4672-8ef5-db2564daeb6f.png">
 
 ## How to Run
 

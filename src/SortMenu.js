@@ -1,12 +1,12 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import './SortMenu.css';
 
 class SortMenu extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      sort: "a-to-z",
-      filter: "none"
+      sort: 'a-to-z',
+      filter: 'none'
     }
   }
 
@@ -27,34 +27,34 @@ class SortMenu extends Component {
 
   render() {
     return (
-      <form className="filter-menu">
-        <div className="sort-drop">
-          <label htmlFor="sort">Sort:</label>
+      <form className='filter-menu'>
+        <div className='sort-drop'>
+          <label htmlFor='sort'>Sort:</label>
           <select
-            name="sort"
+            name='sort'
             onChange={(e) => this.handleChange(e)}
             value={this.state.sort}
           >
-            <option value="a-to-z">Alphabetically (A-Z)</option>
-            <option value="z-to-a">Alphabetically (Z-A)</option>
-            <option value="ascending-rating">By Rating Ascending</option>
-            <option value="descending-rating">By Rating Descending</option>
+            <option value='a-to-z'>Alphabetically (A-Z)</option>
+            <option value='z-to-a'>Alphabetically (Z-A)</option>
+            <option value='ascending-rating'>By Rating Ascending</option>
+            <option value='descending-rating'>By Rating Descending</option>
           </select>
         </div>
-        <div className="filter-drop">
-          <label htmlFor="filter">Filter:</label>
+        <div className='filter-drop'>
+          <label htmlFor='filter'>Filter:</label>
           <select
-            name="filter"
+            name='filter'
             onChange={(e) => this.handleChange(e)}
             value={this.state.filter}
           >
-            <option value="none">Show all ratings</option>
-            <option value="above-5">Ratings above 5</option>
-            <option value="above-6">Ratings above 6</option>
-            <option value="above-7">Ratings above 7</option>
+            <option value='none'>Show all ratings</option>
+            <option value='above-5'>Ratings above 5</option>
+            <option value='above-6'>Ratings above 6</option>
+            <option value='above-7'>Ratings above 7</option>
           </select>
         </div>
-        <button className="clear-button" onClick={(e) => this.resetMenu(e)}>
+        <button className='clear-button' onClick={(e) => this.resetMenu(e)}>
           Reset
         </button>
       </form>
@@ -62,7 +62,7 @@ class SortMenu extends Component {
   }
 }
 
-export default SortMenu
+export default SortMenu;
 
 
 

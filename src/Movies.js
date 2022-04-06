@@ -31,7 +31,7 @@ const Movies = ({ movies, sortFrom, filterBy }) => {
   let allMovies = filteredMovies.map(movie => <Poster key={movie.id} id={movie.id} title={movie.title} posterImg={movie.poster_path} />)
 
   return (
-    <div className="movie-container" >
+    <div className='movie-container' >
       {allMovies}
     </div>
   )
