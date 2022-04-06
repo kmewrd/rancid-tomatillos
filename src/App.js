@@ -23,9 +23,7 @@ class App extends Component {
 
   getAllMovies = () => {
     fetchMovieData()
-      .then((data) => {
-        this.setState({ movies: data.movies, isLoading: false });
-      })
+      .then((data) => this.setState({ movies: data.movies, isLoading: false }))
       .catch((err) => this.setState({ error: err, isLoading: false }));
   };
 

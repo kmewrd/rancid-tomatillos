@@ -1,4 +1,4 @@
-import { allMovies } from './data.js';
+import { allMovies } from './data';
 
 describe('Home Page', () => {
   it('Should have a heading containing the title of the website (Rancid Tomatillos).', () => {
