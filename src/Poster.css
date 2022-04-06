@@ -4,12 +4,15 @@
   align-items: center;
   text-align: center;
   margin: 15px;
+  /* border-radius: 15px; */
+  padding-bottom: 12px;
 }
 
 .movie-poster:hover {
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.25s ease-in-out;
   transform: scale(1.05, 1.05);
+  /* box-shadow: 0px 0px 17px 5px rgba(255, 255, 255, 0.4); */
 }
 
 .movie-poster > h2,
