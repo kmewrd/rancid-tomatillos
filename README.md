@@ -11,7 +11,7 @@ Rancid Tomatillos is a movie rating app built during Mod 3 of Turing School of S
 - Practice refactoring
 - Create a multi-page UX using Router
 
-<img width="1440" alt="Homepage View of Rancid Tomatillos" src="https://user-images.githubusercontent.com/79027364/161639930-353ac4e8-6e14-49f6-aeec-626d0e73b2d8.png">
+<img width="1440" alt="Homepage View of Rancid Tomatillos" src="https://user-images.githubusercontent.com/79027364/161985539-2c6ad6da-bab1-4672-8ef5-db2564daeb6f.png">
 
 ## How to Run
 
@@ -39,13 +39,13 @@ In the header, there are two dropdown menus that control the order in which post
 
 Selecting an option from either dropdown menu immediately renders the new sorted/filtered view. Sorting and filtering options can be combined. To return to the original settings, click the Reset button alongside the menu options.
 
-![Rancid Tomatillos Demo](https://user-images.githubusercontent.com/79027364/161642568-d27bb41a-fb1f-413a-bc23-d69977af7737.gif)
+![Rancid Tomatillos Demo](https://user-images.githubusercontent.com/79027364/161874605-45442411-2c3c-4c7b-9234-3ef0174ea7e6.gif)
 
 #### Accessibility & Responsive Layout
 
 This application was tested with Lighthouse and the WAVE Chrome extension in order to address the needs of all users.
 
-![Rancid-Tomatillos-Mobile](https://user-images.githubusercontent.com/79027364/161644119-fc4701be-4047-4b6c-8cf1-e2f48cb0d0f2.gif)
+![Rancid-Tomatillos-Mobile](https://user-images.githubusercontent.com/79027364/161875414-82cbe288-ef80-4562-8c80-8742eff389b0.gif)
 
 ---
 

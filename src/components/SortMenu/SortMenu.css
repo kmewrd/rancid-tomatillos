@@ -11,7 +11,6 @@
 }
 
 .filter-menu {
-  /* border: 1px solid pink; */
   width: 55%;
   display: flex;
   justify-content: space-evenly;

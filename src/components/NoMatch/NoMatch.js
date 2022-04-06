@@ -4,7 +4,7 @@ import './NoMatch.css';
 const NoMatch = () => {
   return (
     <div>
-      <p className="no-match">Sorry, no movie found at this location. <br></br> Please return to main.</p>
+      <p className='no-match'>No movie found at this location! Please return to main for all available movies.</p>
     </div>
   );
 };

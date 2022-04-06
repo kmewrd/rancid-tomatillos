@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import NoMatch from './NoMatch';
-import fetchMovieData from './APIcalls';
+import NoMatch from '../NoMatch/NoMatch';
+import fetchMovieData from '../../apiCalls';
 import './SingleMovie.css';
-import ErrorMessage from './ErrorMessage';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import { Link } from 'react-router-dom';
-import cleanMovieData from './utils';
+import cleanMovieData from '../../utils';
 import ReactLoading from 'react-loading';
 
 class SingleMovie extends Component {
@@ -31,30 +31,30 @@ class SingleMovie extends Component {
     
     if (movie) {
       movieDetails = (
-        <div className="modal-window">
-          <div className="title-and-rating">
+        <div className='modal-window'>
+          <div className='title-and-rating'>
             <h1>{this.state.movie.title}</h1>
             <h2>Rating: 
-              <span className="green-text"> {this.state.movie.average_rating.toFixed(1)}</span>
+              <span className='green-text'> {this.state.movie.average_rating.toFixed(1)}</span>
             </h2>
           </div>
-          <img src={this.state.movie.backdrop_path} alt="" />
-          <div className="movie-details">
-            <div className="year-and-genres">
+          <img src={this.state.movie.backdrop_path} alt=''/>
+          <div className='movie-details'>
+            <div className='year-and-genres'>
               <h3>Runtime: {typeof this.state.movie.runtime === 'number' ? `${this.state.movie.runtime} minutes` : this.state.movie.runtime}</h3>
               <h3>Year released: {this.state.movie.release_date}</h3>
               <h3>Genres: {this.state.movie.genres}</h3>
             </div>
-            <p className="movie-description">{this.state.movie.overview}</p>
+            <p className='movie-description'>{this.state.movie.overview}</p>
           </div>
         </div>
       );
     }
 
     return (
-      <div className="single-movie-container">
-        <Link to="/">
-          <button className="back-button">Return to main</button>
+      <div className='single-movie-container'>
+        <Link to='/'>
+          <button className='back-button'>Return to main</button>
         </Link>
         {this.state.movie && movieDetails}
         {this.state.isLoading && <ReactLoading type='bubbles' color='#fff' height={'20%'} width={'20%'} />}
